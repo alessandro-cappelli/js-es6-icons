@@ -16,3 +16,15 @@ h1{
     border-radius: 5px;
     text-align: center;
 }
+
+.ms_icon_animal{
+    color: #0511F2;
+}
+
+.ms_icon_vegetable{
+    color: #FFA500;
+}
+
+.ms_icon_user{
+    color: #8A038C;
+}
