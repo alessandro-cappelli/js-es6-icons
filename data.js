@@ -1,4 +1,4 @@
-[
+const icone = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,25 @@
 		color: 'blue'
 	}
 ];
+
+
+const contenitore = document.querySelector('.ms_container_icon');
+const filtro = document.querySelector('.ms_select_option');
+
+filtro.addEventListener("change", function(){
+	contenitore.innerHTML = "";
+	getBoxesCode(this.value);
+});
+
+getBoxesCode(filtro.value);
+
+
+function getBoxesCode(icona){
+	return `
+    	<div>
+        	<div class="col ms_bg_icon"><i class="${family} fa-cat ms_icon_animal"></i>
+            	<p>CAT</p>
+        	</div>
+    	</div>
+	`;
+}
