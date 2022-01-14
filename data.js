@@ -114,7 +114,7 @@ const icone = [
 ];
 
 
-const contenitore = document.querySelector('.ms_container_icon');
+const contenitore = document.querySelector('.ms_row_container_icon');
 const filtro = document.querySelector('.ms_select_option');
 
 filtro.addEventListener("change", function(){
@@ -122,14 +122,23 @@ filtro.addEventListener("change", function(){
 	getBoxesCode(this.value);
 });
 
-getBoxesCode(filtro.value);
 
+function getBoxesCode(filtro){
+	icone.forEach((elemento) =>{
+		if((elemento.type == filtro)||(filtro == 'all')){
+			contenitore.innerHTML += getBoxCode(elemento)
+		}
+	})
+}
 
-function getBoxesCode(icona){
+getBoxesCode(filtro.value)
+
+function getBoxCode(icona){
+	const{name, prefix, type, family, color} = icona;
 	return `
     	<div>
-        	<div class="col ms_bg_icon"><i class="${family} fa-cat ms_icon_animal"></i>
-            	<p>CAT</p>
+        	<div class="col ms_bg_icon"><i class="${family} ${prefix}${name} style="${color};"></i>
+            	<p>${name}</p>
         	</div>
     	</div>
 	`;
